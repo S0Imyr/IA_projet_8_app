@@ -1,0 +1,13 @@
+services:
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=z-36pk=@r_%^&5n+2pf*&olxz@u#an-+8&hfobmy*3!*2wa130
+      - ALLOWED_HOSTS=localhost

@@ -12,18 +12,15 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ["SECRET_KEY"]
 else:
-    SECRET_KEY = 'xuq##n47j#^j2-e=n3#*2v#v1zbq!!*qlrpch&rb*_g^2k7nrl'
+    SECRET_KEY = ''
 
 if 'ALLOWED_HOSTS' in os.environ:
-    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), ]
+    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 else:
     ALLOWED_HOSTS = ['']
 
-DEBUG = os.environ.get("DEBUG", default=True)
+DEBUG = os.environ.get("DEBUG", default=False)
 
-print(SECRET_KEY)
-print(ALLOWED_HOSTS)
-print(DEBUG)
 
 # Application definition
 
