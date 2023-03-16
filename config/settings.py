@@ -19,9 +19,11 @@ if 'ALLOWED_HOSTS' in os.environ:
 else:
     ALLOWED_HOSTS = []
 
-print(ALLOWED_HOSTS)
 DEBUG = os.environ.get("DEBUG", default=True)
 
+print(SECRET_KEY)
+print(ALLOWED_HOSTS)
+print(DEBUG)
 
 # Application definition
 
