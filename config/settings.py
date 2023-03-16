@@ -13,9 +13,9 @@ if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ["SECRET_KEY"]
 
 if 'ALLOWED_HOSTS' in os.environ:
-    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), '']
+    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), ]
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", default=False)
 
 
 # Application definition
