@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'IA-RL-Projet9-App'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1085809C72734ACA9160613FCD835CA3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D92815A3F4044AE19EFF33260A40D52F }}
