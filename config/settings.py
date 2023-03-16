@@ -17,7 +17,7 @@ else:
 if 'ALLOWED_HOSTS' in os.environ:
     ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), ]
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['']
 
 DEBUG = os.environ.get("DEBUG", default=True)
 
