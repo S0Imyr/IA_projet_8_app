@@ -1,0 +1,6 @@
+.env
+db.sqlite3
+media
+git remote add origin https://github.com/S0Imyr/IA_projet_9_app.git
+git branch -M master
+git push -u origin master

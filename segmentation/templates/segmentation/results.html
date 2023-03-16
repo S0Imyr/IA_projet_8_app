@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <p class="h4">Image initiale</p>
+          <img src="{{ initial_image }}" width="256" height="256" />
+        </div>
+        {% if initial_mask %}
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <p class="h4">Masque souhaitée</p>
+          <img src="{{ initial_mask }}" width="256" height="256" />
+        </div>
+        {% endif %}
+        {% if predict_mask %}
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <p class="h4">Segmentation</p>
+          <img src="{{ predict_mask }}" width="256" height="256"/>
+        </div>
+        {% endif %}
+        </div>
+        <div class="row">
+        <div class="d-flex justify-content-center">
+          <a class="btn btn-primary" href="{% url 'segmentation' %}">Réinitialiser</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

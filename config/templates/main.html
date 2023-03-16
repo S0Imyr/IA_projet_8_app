@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+        <!-- Chargement des fichiers CSS de Bootstrap -->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+        <!-- Chargement des fichiers JavaScript de Bootstrap -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block addcss %}
+
+    {% endblock %}
+    <title>Future Vision Transport</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <a class="navbar-brand" href="#">
+                    <img class="img-fluid" width="100px" src="{% static 'images/Logo.png' %}" alt="Logo Future Vision Transport">
+                </a>
+            </div>
+            <div class="col-10 d-flex justify-content-center">
+                <p class="h3">Segmentation d'images</p>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
+
+
