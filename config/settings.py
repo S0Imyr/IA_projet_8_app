@@ -20,7 +20,7 @@ else:
     ALLOWED_HOSTS = []
 
 print(ALLOWED_HOSTS)
-DEBUG = os.environ.get("DEBUG", default=False)
+DEBUG = os.environ.get("DEBUG", default=True)
 
 
 # Application definition
