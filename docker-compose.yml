@@ -1,7 +1,8 @@
 services:
 
-  web:
+  ia-projet8-web-image:
     build: .
+    image: ia-projet8-docker-image
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
