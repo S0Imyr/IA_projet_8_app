@@ -25,6 +25,13 @@ SEGMENTATION_COLORS = {
     7: [0, 0, 142]           # vehicle	car* · truck* · bus* · on rails* · motorcycle* · bicycle* · caravan*+ · trailer*+
 }
 
+MODEL_TITLES = {
+    'FPN': 'FPN (Squelette VGG16)',
+    'FPN_AUG': 'FPN (Squelette VGG16) avec augmentation des données',
+    'UNET': 'U-Net (Squelette VGG16)',
+    'UNET_AUG': 'U-Net (Squelette VGG16) avec augmentation des données',
+}
+
 
 def home(request):
     return render(request, 'segmentation/home.html')
@@ -87,6 +94,8 @@ def segmentation(request):
             predict_mask = cv2.cvtColor(colored_predict_mask, cv2.COLOR_BGR2RGB)
             cv2.imwrite('media/predict_mask.png', predict_mask)
 
+            model_name = MODEL_TITLES[form.cleaned_data['model']]
+
             # Renvoyez l'URL de l'image segmentée en réponse
             return render(request,
                           'segmentation/results.html',
@@ -94,7 +103,7 @@ def segmentation(request):
                               'initial_image':  uploaded_image_url,
                               'initial_mask': f'{settings.MEDIA_URL}initial_mask.png',
                               'predict_mask': f'{settings.MEDIA_URL}predict_mask.png',
-                              'model_name': form.cleaned_data['model'],
+                              'model_name': model_name,
                           })
         else:
             return render(request, 'segmentation/upload.html', {'form': form})

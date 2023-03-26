@@ -35,10 +35,9 @@ model = FPN(input_shape=IMG_SHAPE, classes=NUM_CLASSES)
 MODEL_WEIGHTS = {
     'FPN': 'segmentation/tfmodels/weights_fpn_vgg16_256p.h5',
     'FPN_AUG': 'segmentation/tfmodels/weights_fpn_vgg16_256p_aug.h5',
-    'UNET': 'segmentation/tfmodels/weights_unet_vgg16_256p_aug.h5',
+    'UNET': 'segmentation/tfmodels/weights_unet_vgg16_256p.h5',
     'UNET_AUG': 'segmentation/tfmodels/weights_unet_vgg16_256p_aug.h5',
 }
-
 
 
 def colorize_segmentation(segmented_img, colors):
@@ -87,7 +86,7 @@ def segment_image(image, model_name):
         model = Unet(input_shape=IMG_SHAPE, classes=NUM_CLASSES)
     else:
         raise FileNotFoundError
-    print(MODEL_WEIGHTS[model_name])
+
     model.load_weights(MODEL_WEIGHTS[model_name])
     model.compile(optimizer=optimizer, loss=dice_loss, metrics=metrics)
 
