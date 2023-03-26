@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <!-- Chargement des fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <!-- Chargement des fichiers JavaScript de Bootstrap -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+    {% block addcss %}
+
+    {% endblock %}
+    <title>Future Vision Transport</title>
+</head>
+<body>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <span class="fs-4">Future Vision Transport</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Accueil</a></li>
+        <li class="nav-item"><a href="{% url 'models' %}" class="nav-link">Modèles</a></li>
+        <li class="nav-item"><a href="{% url 'segmentation' %}" class="nav-link">Segmentation</a></li>
+        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+      </ul>
+    </header>
+      {% block content %}
+      {% endblock %}
+  </div>
+</body>
+</html>
+
+

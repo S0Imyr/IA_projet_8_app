@@ -1,8 +1,11 @@
-FROM python:3.9
+FROM python:3.9-slim
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DEBUG False
+ENV SECRET_KEY ''
+ENV ALLOWED_HOST ''
 
 # set work directory
 WORKDIR /usr/src/app

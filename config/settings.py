@@ -10,15 +10,14 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 
-SECRET_KEY = os.environ.get("SECRET_KEY", 'hm2+ci)*t2-$hxfs4e!3#!he6l0myho+x!pa*)9dq17vrbk66d')
+SECRET_KEY = os.environ.get("SECRET_KEY", '')
 
 if 'ALLOWED_HOSTS' in os.environ:
-    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 else:
-    ALLOWED_HOSTS = ['localhost', 'ia-projet8-webapp.azurewebsites.net']
+    ALLOWED_HOSTS = []
 
-DEBUG = os.environ.get("DEBUG", default=True)
-
+DEBUG = os.environ.get("DEBUG", default=False)
 
 # Application definition
 

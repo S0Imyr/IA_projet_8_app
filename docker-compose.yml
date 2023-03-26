@@ -9,6 +9,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=True
-      - SECRET_KEY=z-36pk=@r_%^&5n+2pf*&olxz@u#an-+8&hfobmy*3!*2wa130
-      - ALLOWED_HOSTS=localhost
+      - DEBUG=False
+      - SECRET_KEY=''
+      - ALLOWED_HOSTS=''
