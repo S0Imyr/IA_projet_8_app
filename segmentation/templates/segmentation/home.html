@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1 class="display-4">Segmentation d'Images pour une Voiture Autonome</h1>
+      <p class="lead">Projet 8</p>
+      <hr class="my-2">
+      <p>Le but de la segmentation d'images est de diviser l'image en différentes zones correspondant à des objets ou des surfaces différents, afin de permettre à la voiture autonome de comprendre son environnement et de prendre les bonnes décisions.</p>
+      <p>Notre projet utilise le jeu de données "Cityscapes Dataset", qui contient 5 000 images haute résolution avec des annotations fines représentant 30 classes. Nous nous concentrons sur 8 groupes d'objets, qui incluent les voitures, les piétons, les routes, les trottoirs, les bâtiments, les panneaux de signalisation, les feux de signalisation et le ciel. </p>
+       <div class="table-responsive col-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Groupe</th>
+              <th>Classes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>flat</td>
+              <td>road · sidewalk · parking+ · rail track+</td>
+            </tr>
+            <tr>
+              <td>human</td>
+              <td>person* · rider*</td>
+            </tr>
+            <tr>
+              <td>vehicle</td>
+              <td>car* · truck* · bus* · on rails* · motorcycle* · bicycle* · caravan*+ · trailer*+</td>
+            </tr>
+            <tr>
+              <td>construction</td>
+              <td>building · wall · fence · guard rail+ · bridge+ · tunnel+</td>
+            </tr>
+            <tr>
+              <td>object</td>
+              <td>pole · pole group+ · traffic sign · traffic light</td>
+            </tr>
+            <tr>
+              <td>nature</td>
+              <td>vegetation · terrain</td>
+            </tr>
+            <tr>
+              <td>sky</td>
+              <td>sky</td>
+            </tr>
+            <tr>
+              <td>void</td>
+              <td>ground+ · dynamic+ · static+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Sur la page <em class="fw-bold">Modèles</em>, vous pouvez voir les performances des deux modèles retenus.</p>
+      <p>Sur la page <em class="fw-bold">Segmentation</em>, vous pouvez télécharger une image et un masque, choisir un modèle et appliquer la segmentation pour obtenir un nouveau masque.</p>
+    </div>
+  </div>
+  <hr class="my-2">
+  <div class="container">
+    <div class="row">
+      <h4 class="display-6">Exemple de segmentation fine CityScape</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center">
+            <p class="h3">Image</p>
+        </div>
+        <div class="mb-4 d-flex justify-content-center">
+          <img width=512px src="{% static 'images/example_image.png' %}" class="img-fluid" alt="Image initiale">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center">
+            <p class="h3">Masque</p>
+        </div>
+        <div class="mb-4 d-flex justify-content-center">
+          <img width=512px src="{% static 'images/example_mask.png' %}" class="img-fluid" alt="Masque souhaité">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1 class="display-4">Modèles retenus</h1>
+      <hr class="my-4">
+      <p>Cette page présente les modèles de segmentation d'images que nous avons développés pour ce projet.</p>
+      <p>Pour chaque modèle, nous présentons rapidement son architecture, ainsi que les valeurs de métriques de performance (accuracy, IoU score et F1-score) obtenues sur le jeu de données de test.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row flex-row">
+      <div class="col-md-12 mb-4">
+        <h4>Modèle U-Net avec VGG16</h4>
+        <p>Ce modèle utilise le modèle de type encoder/decoder : U-Net. Le modèle utilise un squelette inspiré de VGG16 pour améliorer le modèle U-Net intial.</p>
+        <div class="mb-4 d-flex justify-content-center">
+          <img width=512px src="{% static 'images/Unet.png' %}" class="img-fluid" alt="Image initiale">
+        </div>
+        <h4>Modèle FPN avec VGG16</h4>
+        <p>Ce modèle utilise la méthode Feature Pyramid Network (FPN). Le modèle utilise un squelette inspiré de VGG16 pour améliorer le modèle FPN.</p>
+        <div class="mb-4 d-flex justify-content-center">
+          <img width=512px src="{% static 'images/FPN.png' %}" class="img-fluid" alt="Image initiale">
+        </div>
+        <h4>Résultats sur les données de Test</h4>
+        <div class="container" >
+          <div class="row d-flex flex-row">
+            <div class="col-6">
+              <h5>Métriques sans augmentation de données</h5>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Modèle</th>
+                      <th>Accuracy</th>
+                      <th>IoU Score</th>
+                      <th>F1-Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>FPN avec VGG16</td>
+                      <td>90,27%</td>
+                      <td>70.82%</td>
+                      <td>80.77%</td>
+                    </tr>
+                      <td>U-Net avec VGG16</td>
+                      <td>90,40%</td>
+                      <td>71,51%</td>
+                      <td>81,46%</td>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-6">
+              <h5>Métriques avec augmentation de données</h5>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Modèle</th>
+                      <th>Accuracy</th>
+                      <th>IoU Score</th>
+                      <th>F1-Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>FPN avec VGG16</td>
+                      <td>90.78%</td>
+                      <td>73.17%</td>
+                      <td>82.82%</td>
+                    </tr>
+                    <tr>
+                      <td>U-Net avec VGG16</td>
+                      <td>90.62%</td>
+                      <td>72.64%</td>
+                      <td>82.39%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
