@@ -86,11 +86,6 @@ def segment_image(image, model_name):
         model = Unet(input_shape=IMG_SHAPE, classes=NUM_CLASSES)
     else:
         raise FileNotFoundError
-<<<<<<< HEAD
-
-=======
-    print(MODEL_WEIGHTS[model_name])
->>>>>>> origin/main
     model.load_weights(MODEL_WEIGHTS[model_name])
     model.compile(optimizer=optimizer, loss=dice_loss, metrics=metrics)
 
